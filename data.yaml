@@ -1,0 +1,13 @@
+train: ../data/train/images
+val: ../data/valid/images
+test: ../data/test/images
+
+nc: 3
+names: ['Gernade', 'Gun', 'Knife']
+
+roboflow:
+  workspace: violence-model
+  project: weapons-detection-4itg4
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/violence-model/weapons-detection-4itg4/dataset/1
