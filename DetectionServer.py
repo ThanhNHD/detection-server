@@ -11,7 +11,7 @@ threads = []
 stop_event = threading.Event()
 
 # Load YOLO model (YOLOv8 is used here; modify the model path if using another version)
-model = YOLO('../runs/best/weights/best.pt')  # Replace with your YOLO model path
+model = YOLO('best.pt')  # Replace with your YOLO model path
 
 app = Flask(__name__)
 
@@ -174,6 +174,7 @@ def process_rtsp_feed(source_place, server_url):
             break
 
         # YOLO prediction
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         resized_image = cv2.resize(frame, (640, 640))
         denoised_image = reduce_noise_auto(resized_image)
         enhance_contract_image = enhance_contrast_auto(denoised_image)
